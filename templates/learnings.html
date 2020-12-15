@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADD LEARNINGS</title>
+</head>
+<body>
+    <form action="" method="POST">
+    {% csrf_token %}
+    LIST ID: <input type="number" name="list_id"><br>
+    EMPLOYEE ID: <input type="number" name="emp_id"><br>
+    JOB ID: <input type="number" name="job_id"><br>
+    
+    <input type="submit" value="Post"/>
+    </form>
+    <table>
+        <th>List_ID</th>
+        <th>Employee_Name</th>
+        <th>Job_Name</th>
+        {% for i in learning %}
+        <tr>
+            <td><b>{{ i.list_id }}</b></td>
+            <td><b>{{ i.emp_id }}</b></td>
+            <td>{{ i.job_id }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>SIGN UP</title>
+</head>
+
+<body>
+<h1>SIGN UP</h1>
+<form action="" method="POST">
+{% csrf_token %}
+DOMAIN NAME: <input type="text" name="domain_url"><br>
+SCHEMA NAME: <input type="text" name="schema_name"><br>
+CLIENT Name: <input type="text" name="name"><br>
+USER NAME: <input type="text" name="username"><br>
+PASSWORD: <input type="text" name="password"><br>
+EMAIL: <input type="text" name="email"><br>
+
+<input type="submit" value="Post"/>
+</form>
+
+</body>
+
+</html>

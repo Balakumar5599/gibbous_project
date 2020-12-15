@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADD EMPLOYEE</title>
+</head>
+<body>
+    <form action="" method="POST">
+    {% csrf_token %}
+    JOB ID: <input type="number" name="job_id"><br>
+    JOB NAME: <input type="text" name="job_name"><br>
+    JOB DESCRIPTION: <input type="text" name="job_description"><br>
+    
+    <input type="submit" value="Post"/>
+    </form>
+    <table>
+        <th>JOB_ID</th>
+        <th>JOB_Name</th>
+        <th>JOB_Description</th>
+        {% for i in task %}
+        <tr>
+            <td><b>{{ i.job_id }}</b></td>
+            <td>{{ i.job_name }}</td>
+            <td>{{ i.job_description }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

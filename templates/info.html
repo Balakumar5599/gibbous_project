@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Tenant Information</h2>
+<p id="demo">Let AJAX change this text.</p>
+
+<button type="button" onclick="loadDoc()">Change Content</button>
+
+<script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("GET", "http://w.localhost:8000/tenant", false);
+  xhttp.send();
+  document.getElementById("demo").innerHTML = xhttp.responseText;
+}
+</script>
+</body>
+</html>

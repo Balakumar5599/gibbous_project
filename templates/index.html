@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  margin-left:-5px;
+  margin-right:-5px;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+
+}
+tr{
+    text-align-last: center;
+}
+</style>
+</head>
+<body>
+<div class="row">
+  <div class="column">
+    <table>
+            <th>Employee_ID</th>
+            <th>Employee_Name</th>
+            {% for i in json_data1.emp %}
+            <tr>
+                <td><b>{{ i.emp_id }}</b></td>
+                <td>{{ i.emp_name }}</td>
+            </tr>
+            {% endfor %}
+    </table>
+  </div>
+  <div class="column">
+    <table>
+            <th>Job_ID</th>
+            <th>Job_Name</th>
+            <th>Job_description</th>
+            {% for i in json_data1.job %}
+            <tr>
+                <td><b>{{ i.job_id }}</b></td>
+                <td>{{ i.job_name }}</td>
+                <td>{{ i.job_description }}</td>
+            </tr>
+            {% endfor %}
+    </table>
+  </div>
+ <div class="column">
+    <table>
+            <th>List_ID</th>
+            <th>Employee_ID</th>
+            <th>Job_ID</th>
+            {% for i in json_data1.list %}
+            <tr>
+                <td><b>{{ i.list_id }}</b></td>
+                <td>{{ i.emp_id }}</td>
+                <td>{{ i.job_id }}</td>
+            </tr>
+            {% endfor %}
+    </table>
+  </div>
+</div>
+<br><br>
+<form action="" method="POST">
+    {% csrf_token %}
+    EMPLOYEE ID: <input type="number" name="emp_id"><br>
+    EMPLOYEE NAME: <input type="text" name="emp_name"><br>
+
+    <input type="submit" value="Post"/>
+</form>
+<br>
+<br>
+<form action="" method="POST">
+    {% csrf_token %}
+    JOB ID: <input type="number" name="job_id"><br>
+    JOB NAME: <input type="text" name="job_name"><br>
+    JOB DESCRIPTION: <input type="text" name="job_description"><br>
+
+    <input type="submit" value="Post"/>
+</form>
+<br>
+<br>
+<form action="" method="POST">
+    {% csrf_token %}
+    LIST ID: <input type="number" name="list_id"><br>
+    EMPLOYEE ID: <input type="number" name="emp_id"><br>
+    JOB ID: <input type="number" name="job_id"><br>
+
+    <input type="submit" value="Post"/>
+</form>
+
+</body>
+
+</html>
